@@ -1,5 +1,5 @@
 # Create links from /vendor to /system for AOSP without vendor builds
-ifneq (,$(filter aosp_angler, $(TARGET_PRODUCT)))
+ifeq ($(TARGET_DEVICE),angler)
 
 LOCAL_PATH := $(call my-dir)
 
