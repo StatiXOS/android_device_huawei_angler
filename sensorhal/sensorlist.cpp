@@ -309,7 +309,7 @@ extern const sensor_t kSensorList[] = {
         SENSOR_STRING_TYPE_SIGNIFICANT_MOTION,
         "",                                     // requiredPermission
         0,                                      // maxDelay
-        SENSOR_FLAG_WAKE_UP | SENSOR_FLAG_ONE_SHOT_MODE,
+        SENSOR_FLAG_ONE_SHOT_MODE,
         { NULL, NULL }
     },
     {
