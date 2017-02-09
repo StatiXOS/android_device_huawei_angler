@@ -143,6 +143,9 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
 
+    # High Brightness Mode
+    chown system system /sys/devices/virtual/graphics/fb0/hbm
+
 on property:init.svc.per_mgr=running
     start per_proxy
 
