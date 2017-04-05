@@ -36,5 +36,8 @@
 
     <!-- Doze: can we assume the pickup sensor includes a proximity check? -->
     <bool name="doze_pickup_performs_proximity_check">true</bool>
+
+    <!-- Should "LTE"/"4G" be shown instead of "LTE+"/"4G+" when on NETWORK_TYPE_LTE_CA? -->
+    <bool name="config_hideLtePlus">true</bool>
 </resources>
 
