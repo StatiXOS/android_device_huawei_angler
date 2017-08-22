@@ -156,4 +156,7 @@ TARGET_FS_CONFIG_GEN += device/huawei/angler/config.fs
 DEVICE_MANIFEST_FILE := device/huawei/angler/manifest.xml
 DEVICE_MATRIX_FILE := device/huawei/angler/compatibility_matrix.xml
 
+# Enable workaround for slow rom flash
+BOARD_SUPPRESS_SECURE_ERASE := true
+
 -include vendor/huawei/angler/BoardConfigVendor.mk
