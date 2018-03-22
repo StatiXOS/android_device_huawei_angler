@@ -420,12 +420,4 @@
          rotations as the default behavior. -->
     <bool name="config_allowAllRotations">false</bool>
 
-    <!-- Enable night mode -->
-    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
-         in hardware. -->
-    <bool name="config_setColorTransformAccelerated">true</bool>
-
-    <!-- Whether device supports High Brightness Mode -->
-    <bool name="config_supportHighBrightness">true</bool>
-
 </resources>
