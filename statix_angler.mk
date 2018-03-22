@@ -1,5 +1,5 @@
 #
-# Copyright 2015 The Android Open Source Project
+# Copyright 2013-2017 The StatiX Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,21 +17,20 @@
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
-# Get the long list of APNs
-PRODUCT_COPY_FILES := device/huawei/angler/apns-full-conf.xml:system/etc/apns-conf.xml
+# Inherit from the common product configuration
+$(call inherit-product, device/huawei/angler/aosp_angler.mk)
 
-PRODUCT_NAME := aosp_angler
+# Inherit StatiX's custom configuration
+$(call inherit-product, $(TOPDIR)vendor/statix/config/common.mk)
+
+PRODUCT_NAME := statix_angler
 PRODUCT_DEVICE := angler
-PRODUCT_BRAND := Android
-PRODUCT_MODEL := AOSP on angler
+PRODUCT_BRAND := google
+PRODUCT_MODEL := Nexus 6P
 PRODUCT_MANUFACTURER := Huawei
 
-$(call inherit-product, device/huawei/angler/device.mk)
-$(call inherit-product-if-exists, vendor/huawei/angler/device-vendor.mk)
-
-PRODUCT_PACKAGES += \
-    Launcher3 \
-    WallpaperPicker
-
-PRODUCT_PACKAGES += \
-    AOSPLinks
+# Device Fingerprint
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=angler \
+    BUILD_FINGERPRINT=google/angler/angler:8.1.0/OPM3.171019.014/4503998:user/release-keys \
+    PRIVATE_BUILD_DESC="angler-user 8.1.0 OPM3.171019.014 4503998 release-keys"
