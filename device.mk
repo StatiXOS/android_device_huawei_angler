@@ -568,7 +568,7 @@ PRODUCT_COPY_FILES += \
 
 # Vendor patch level 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.patch.level=OPM2.171019.029.A1
+    ro.vendor.patch.level=OPM6.171019.030.B1
 
 # b/29995499
 $(call add-product-sanitizer-module-config,cameraserver,never)
