@@ -29,7 +29,7 @@ PRODUCT_DEVICE := angler
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on angler
 PRODUCT_MANUFACTURER := Huawei
-PRODUCT_RESTRICT_VENDOR_FILES := true
+PRODUCT_RESTRICT_VENDOR_FILES := false
 
 PRODUCT_COPY_FILES += device/huawei/angler/fstab.aosp_angler:root/fstab.angler
 
