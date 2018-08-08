@@ -185,10 +185,13 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_PACKAGES += \
     gralloc.msm8994 \
-    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.mapper@2.0-impl \
-    hwcomposer.msm8994 \
+    android.hardware.graphics.mapper@2.0-impl
+# HW Composer
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.1-impl:64 \
+    android.hardware.graphics.composer@2.1-service \
     libgenlock \
     memtrack.msm8994 \
     android.hardware.memtrack@1.0-impl
@@ -196,14 +199,14 @@ PRODUCT_PACKAGES += \
 # Light HAL
 PRODUCT_PACKAGES += \
     lights.angler \
-    android.hardware.light@2.0-impl
+    android.hardware.light@2.0-impl:64
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-impl:32 \
 
 USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_PACKAGES += \
@@ -234,9 +237,9 @@ PRODUCT_PACKAGES += \
     libOmxVenc
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.soundtrigger@2.0-impl
+    android.hardware.audio@4.0-impl:32 \
+    android.hardware.audio.effect@4.0-impl:32 \
+    android.hardware.soundtrigger@2.1-impl:32
 
 #CAMERA
 PRODUCT_PACKAGES += \
@@ -249,6 +252,10 @@ PRODUCT_PACKAGES += \
     libmmjpeg_interface \
     libqomx_core \
     mm-qcamera-app
+
+# health HAL
+PRODUCT_PACKAGES += \
+	android.hardware.health@2.0-service.angler
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -268,13 +275,12 @@ NANOHUB_SENSORHAL_DIRECT_REPORT_ENABLED := true
 PRODUCT_PACKAGES += \
     sensors.angler \
     activity_recognition.angler \
-    context_hub.default \
-    android.hardware.sensors@1.0-impl \
-    android.hardware.contexthub@1.0-impl \
+    android.hardware.sensors@1.0-impl:64 \
+    android.hardware.contexthub@1.0-impl:64 \
 
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl
+    android.hardware.gatekeeper@1.0-impl:64
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_PACKAGES += \
@@ -308,8 +314,9 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
-    libbt-vendor \
-    android.hardware.bluetooth@1.0-impl
+    android.hardware.bluetooth@1.0-impl-qti:64 \
+    android.hardware.bluetooth@1.0-service-qti \
+    android.hardware.bluetooth@1.0-service-qti.rc
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -317,11 +324,11 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     nfc_nci.msm8994 \
-    android.hardware.nfc@1.0-impl \
+    android.hardware.nfc@1.1-service \
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl
+    android.hardware.keymaster@3.0-impl:64
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -339,7 +346,7 @@ PRODUCT_PACKAGES += \
 
 #GNSS HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl
+    android.hardware.gnss@1.0-impl:64
 
 #USB HAL
 PRODUCT_PACKAGES += \
