@@ -186,6 +186,16 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-service \
+    android.hardware.contexthub@1.0-service \
+    android.hardware.gnss@1.0-service \
+    android.hardware.drm@1.0-service \
+    android.hardware.light@2.0-service \
+    android.hardware.memtrack@1.0-service \
+    android.hardware.sensors@1.0-service
+
+
+PRODUCT_PACKAGES += \
     gralloc.msm8994 \
     android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
@@ -277,7 +287,6 @@ PRODUCT_PACKAGES += \
     sensors.angler \
     activity_recognition.angler \
     android.hardware.sensors@1.0-impl:64 \
-    android.hardware.contexthub@1.0-service:64 \
     android.hardware.contexthub@1.0-impl.nanohub:64
 
 # new gatekeeper HAL
