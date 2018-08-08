@@ -277,7 +277,8 @@ PRODUCT_PACKAGES += \
     sensors.angler \
     activity_recognition.angler \
     android.hardware.sensors@1.0-impl:64 \
-    android.hardware.contexthub@1.0-impl:64 \
+    android.hardware.contexthub@1.0-service:64 \
+    android.hardware.contexthub@1.0-impl.nanohub:64
 
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
