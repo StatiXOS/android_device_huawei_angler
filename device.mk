@@ -40,8 +40,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/rootdir/ueventd.angler.rc:root/ueventd.angler.rc \
     device/huawei/angler/rootdir/init.recovery.angler.rc:root/init.recovery.angler.rc \
     device/huawei/angler/rootdir/init.angler.power.sh:system/bin/init.angler.power.sh \
-    device/huawei/angler/keylayout/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl \
-    device/huawei/angler/keylayout/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc \
+    device/huawei/angler/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
+    device/huawei/angler/keylayout/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
     device/huawei/angler/rootdir/init.qcom.devwait.sh:system/bin/init.qcom.devwait.sh \
     device/huawei/angler/rootdir/init.qcom.devstart.sh:system/bin/init.qcom.devstart.sh
 
@@ -65,34 +65,34 @@ PRODUCT_COPY_FILES += \
 
 # Media
 PRODUCT_COPY_FILES += \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    device/huawei/angler/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    device/huawei/angler/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-    device/huawei/angler/configs/media_profiles.xml:system/etc/media_profiles.xml
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
+    device/huawei/angler/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    device/huawei/angler/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    device/huawei/angler/configs/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml
 
 # Audio
 PRODUCT_COPY_FILES += \
     device/huawei/angler/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
     device/huawei/angler/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
-    device/huawei/angler/audio/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/huawei/angler/audio/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
-    device/huawei/angler/audio/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
-    device/huawei/angler/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
-    device/huawei/angler/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    device/huawei/angler/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
-    device/huawei/angler/audio/audio_policy_volumes_drc.xml:system/etc/audio_policy_volumes_drc.xml \
-    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/a2dp_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/r_submix_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/usb_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/etc/default_volume_tables.xml \
+    device/huawei/angler/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
+    device/huawei/angler/audio/audio_platform_info_i2s.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_i2s.xml \
+    device/huawei/angler/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
+    device/huawei/angler/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)system/etc/sound_trigger_platform_info.xml \
+    device/huawei/angler/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
+    device/huawei/angler/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    device/huawei/angler/audio/audio_policy_volumes_drc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes_drc.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
 
 # Input device files
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/huawei/angler/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl \
-    device/huawei/angler/configs/synaptics_dsx.idc:system/usr/idc/synaptics_dsx.idc
+    device/huawei/angler/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
+    device/huawei/angler/keylayout/qpnp_pon.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/qpnp_pon.kl \
+    device/huawei/angler/configs/synaptics_dsx.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/synaptics_dsx.idc
 
 # for launcher layout
 PRODUCT_PACKAGES += \
@@ -118,11 +118,11 @@ PRODUCT_COPY_FILES += \
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
-    device/huawei/angler/bcmdhd-pme.cal:system/etc/wifi/bcmdhd-pme.cal \
-    device/huawei/angler/bcmdhd-high.cal:system/etc/wifi/bcmdhd-high.cal \
-    device/huawei/angler/bcmdhd-low.cal:system/etc/wifi/bcmdhd-low.cal \
-    device/huawei/angler/filter_ie:system/etc/wifi/filter_ie
+    device/huawei/angler/bcmdhd.cal:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/bcmdhd.cal \
+    device/huawei/angler/bcmdhd-pme.cal:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/bcmdhd-pme.cal \
+    device/huawei/angler/bcmdhd-high.cal:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/bcmdhd-high.cal \
+    device/huawei/angler/bcmdhd-low.cal:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/bcmdhd-low.cal \
+    device/huawei/angler/filter_ie:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/filter_ie
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -362,8 +362,8 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/nfc/libnfc-nci.conf:system/etc/libnfc-nci.conf \
-    device/huawei/angler/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
+    device/huawei/angler/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
+    device/huawei/angler/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/huawei/angler/overlay
