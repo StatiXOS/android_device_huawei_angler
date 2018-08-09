@@ -48,7 +48,7 @@ BOARD_USES_SECURE_SERVICES := true
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
-TARGET_BOARD_INFO_FILE := device/huawei/angler/board-info.txt
+TARGET_BOARD_INFO_FILE := device/huawei/angler/configs/board-info.txt
 TARGET_NO_RPC := true
 
 BOARD_EGL_CFG := device/huawei/angler/egl/egl.cfg
@@ -97,7 +97,7 @@ TARGET_AUX_OS_VARIANT_LIST := angler
 
 TARGET_RECOVERY_FSTAB = device/huawei/angler/rootdir/fstab.angler
 TARGET_COPY_OUT_VENDOR := vendor
-TARGET_RELEASETOOLS_EXTENSIONS := device/huawei/angler
+TARGET_RELEASETOOLS_EXTENSIONS := device/huawei/angler/releasetools
 
 BOARD_SEPOLICY_DIRS += \
 	device/huawei/angler/sepolicy
@@ -136,9 +136,9 @@ NXP_CHIP_TYPE := 2
 # Testing related defines
 BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/angler-setup.sh
 
-TARGET_FS_CONFIG_GEN += device/huawei/angler/config.fs
+TARGET_FS_CONFIG_GEN += device/huawei/angler/configs/config.fs
 
-DEVICE_MANIFEST_FILE := device/huawei/angler/manifest.xml
-DEVICE_MATRIX_FILE := device/huawei/angler/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := device/huawei/angler/manifests/manifest.xml
+DEVICE_MATRIX_FILE := device/huawei/angler/manifests/compatibility_matrix.xml
 
 -include vendor/huawei/angler/BoardConfigVendor.mk
