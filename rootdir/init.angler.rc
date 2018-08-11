@@ -238,6 +238,14 @@ on post-fs-data
     chown radio radio /data/misc/radio/db_check_done
     chmod 0660 /data/misc/radio/db_check_done
 
+
+    # Create the directories used by the Wireless subsystem
+    mkdir /data/vendor/wifi 0771 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
+
     chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
     chmod 0660 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
     chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
