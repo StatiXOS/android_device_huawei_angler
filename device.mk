@@ -443,7 +443,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1
 
-# Setup custom emergency number list based on the MCC. This is needed by RIL
+â# Setup custom emergency number list based on the MCC. This is needed by RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.custom_ecc=1
 
@@ -569,13 +569,15 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358
 PRODUCT_COPY_FILES += \
     device/huawei/angler/gps/gps.conf:system/etc/gps.conf:qcom
 
-# services
+# services for encryption
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service \
     android.hardware.keymaster@3.0-service.rc \
     android.hardware.gatekeeper@1.0-service \
     android.hardware.graphics.composer@2.1-service \
-    android.hardware.graphics.mapper@2.0-service
+    android.hardware.graphics.mapper@2.0-service \
+    gatekeeper.msm8994 \
+    keystore.msm8994
 
 # b/29995499
 $(call add-product-sanitizer-module-config,cameraserver,never)
