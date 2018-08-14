@@ -20,6 +20,7 @@ import init.angler.sensorhub.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
     chown system system /sys/kernel/debug/kgsl/proc
 
 on init
@@ -141,6 +142,11 @@ on boot
 
     # Wifi firmware reload path
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
+
+    # WebView
+    chmod 0755 /sys/kernel/debug/tracing
+    chmod 0644 /sys/kernel/debug/tracing/trace_marker
+    chown webview_zygote webview_zygote /sys/kernel/debug/tracing/trace_marker
 
 on property:init.svc.per_mgr=running
     start per_proxy
