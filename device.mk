@@ -114,7 +114,6 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/bcmdhd-high.cal:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/bcmdhd-high.cal \
     device/huawei/angler/bcmdhd-low.cal:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/bcmdhd-low.cal \
     device/huawei/angler/filter_ie:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/filter_ie \
-    device/huawei/angler/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -329,6 +328,7 @@ PRODUCT_PACKAGES += \
     Tag \
     nfc_nci.msm8994 \
     android.hardware.nfc@1.0-service \
+    android.hardware.nfc@1.0-impl \
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
@@ -364,8 +364,8 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
-    device/huawei/angler/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+    device/huawei/angler/nfc/libnfc-nci.conf:system/etc/libnfc-nci.conf \
+    device/huawei/angler/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/huawei/angler/overlay

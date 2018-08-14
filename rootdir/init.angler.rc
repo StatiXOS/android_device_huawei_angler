@@ -414,12 +414,10 @@ service qcamerasvr /vendor/bin/mm-qcamera-daemon
     writepid /dev/cpuset/camera-daemon/tasks
 
 service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
-        -iwlan0 -Dnl80211 -c/vendor/etc/wifi/wpa_supplicant.conf \
-        -I/vendor/etc/wifi/p2p_supplicant_overlay.conf \
         -O/data/misc/wifi/sockets \
-        -m/data/misc/wifi/p2p_supplicant.conf \
         -puse_p2p_group_interface=1p2p_device=1 \
         -g@android:wpa_wlan0
+
     interface android.hardware.wifi.supplicant@1.0::ISupplicant default
     interface android.hardware.wifi.supplicant@1.0::ISupplicant default
     class main
