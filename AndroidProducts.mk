@@ -16,5 +16,5 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/angler.mk \
-    $(LOCAL_DIR)/carbon_angler.mk
+    $(LOCAL_DIR)/statix_angler.mk
 

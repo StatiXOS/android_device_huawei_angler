@@ -20,15 +20,14 @@
 # Inherit from the common product configuration
 $(call inherit-product, device/huawei/angler/angler.mk)
 
-# Inherit carbon's custom configuration
-$(call inherit-product, $(TOPDIR)vendor/carbon/config/common.mk)
-$(call inherit-product, $(TOPDIR)vendor/carbon/config/gsm.mk)
+# Inherit statix's custom configuration
+$(call inherit-product, $(TOPDIR)vendor/statix/config/common.mk)
 
 # Screen Resolution for the Bootanimation
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1440
 
-PRODUCT_NAME := carbon_angler
+PRODUCT_NAME := statix_angler
 PRODUCT_DEVICE := angler
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 6P
