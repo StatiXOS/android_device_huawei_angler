@@ -141,6 +141,10 @@ on boot
 
     # Wifi firmware reload path
     chown wifi wifi /sys/module/bcmdhd/parameters/firmware_path
+    
+    # Initialize WiFi firmware for all angler variants
+    write /sys/module/bcmdhd/parameters/nvram_path \
+	  /vendor/etc/wifi/bcmdhd-pme.cal  
 
 on property:init.svc.per_mgr=running
     start per_proxy
@@ -451,15 +455,7 @@ service cnd /vendor/bin/cnd
     class late_start
     socket cnd stream 660 root inet
     group root wakelock
-    writepid /dev/cpuset/system-background/tasks
-
-on property:ro.boot.hardware.revision=ANGLER-V1
-    write /sys/module/bcmdhd/parameters/nvram_path \
-	      /vendor/etc/wifi/bcmdhd-pme.cal
-
-on property:ro.boot.hardware.revision=ANGLER-V2
-    write /sys/module/bcmdhd/parameters/nvram_path \
-	      /vendor/etc/wifi/bcmdhd-pme.cal
+    writepid /dev/cpuset/system-background/tasks 
 
 on property:ro.boot.wifi_cal=2
 	write /sys/module/bcmdhd/parameters/nvram_path \
