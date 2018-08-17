@@ -572,6 +572,10 @@ PRODUCT_PACKAGES += \
     gatekeeper.msm8994 \
     keystore.msm8994
 
+# GApps
+$(call inherit-product-if-exists, vendor/gapps/config.mk)
+TARGET_GAPPS_ARCH := arm64
+
 # b/29995499
 $(call add-product-sanitizer-module-config,cameraserver,never)
 $(call add-product-sanitizer-module-config,mm-qcamera-daemon,never)
