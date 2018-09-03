@@ -1,0 +1,12 @@
+[
+ {
+   "repository": "StatiXOS/android_kernel_huawei_angler",
+   "target_path": "kernel/huawei/angler",
+   "branch": "9"
+ },
+ {
+   "repository": "StatiXOS/android_vendor_huawei",
+   "target_path": "vendor/huawei",
+   "branch": "9"
+ }
+]
