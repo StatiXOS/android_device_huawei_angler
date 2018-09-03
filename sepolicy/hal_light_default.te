@@ -1,0 +1,8 @@
+# leds
+allow hal_light_default sysfs_qpnp_26:dir r_dir_perms;
+allow hal_light_default sysfs_qpnp_26:file rw_file_perms;
+
+# flash
+allow hal_light_default sysfs_qpnp_27:dir r_dir_perms;
+allow hal_light_default sysfs_qpnp_27:file rw_file_perms;
+

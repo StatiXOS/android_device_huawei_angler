@@ -42,7 +42,7 @@ BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=angler androidboot.console=ttyHSL0 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-3 no_console_suspend
-BOARD_KERNEL_CMDLINE += loop.max_part=7 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += loop.max_part=7
 
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
@@ -111,6 +111,8 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/huawei/angler/releasetools
 
 BOARD_SEPOLICY_DIRS += \
 	device/huawei/angler/sepolicy
+
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR := device/huawei/angler/sepolicy/private
 
 TARGET_USES_64_BIT_BINDER := true
 

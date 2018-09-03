@@ -1,0 +1,3 @@
+# KGSL
+allow mediacodec debugfs_kgsl_proc:dir { search read open };
+allow mediacodec debugfs_kgsl_proc:file { open read write getattr setattr };

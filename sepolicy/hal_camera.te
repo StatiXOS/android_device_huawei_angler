@@ -10,3 +10,4 @@ allow hal_camera perfd_data_file:sock_file write;
 # access /data/misc/camera
 allow hal_camera camera_data_file:dir create_dir_perms;
 allow hal_camera camera_data_file:file create_file_perms;
+allow hal_camera scheduling_policy_service:service_manager find;

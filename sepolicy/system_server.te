@@ -45,3 +45,14 @@ allow system_server sysfs_thermal:file write;
 # use MSM ipc router ioctls
 allow system_server self:socket ioctl;
 allowxperm system_server self:socket ioctl msm_sock_ipc_ioctls;
+
+# To be labeled
+allow system_server unlabeled:file unlink;
+
+allow system_server crash_dump:process getpgid;
+
+# vendor data
+allow system_server vendor_data_file:dir r_dir_perms;
+
+# HubConnection
+allow system_server sensors_cal_file:file r_file_perms;

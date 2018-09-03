@@ -1,0 +1,4 @@
+allow shell sysfs_fs_ext4_features:dir r_dir_perms;
+
+# shell common permissions
+allow shell sysfs:file r_file_perms;

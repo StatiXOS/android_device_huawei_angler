@@ -37,3 +37,48 @@ type sysfs_wifi_sar, fs_type, sysfs_type;
 type sysfs_lcd_mipi, fs_type, sysfs_type;
 
 type nfc_vendor_data_file, file_type, data_file_type;
+
+# type for mtu
+type sysfs_g_android_param, fs_type, sysfs_type;
+
+# type for fs tune
+type sysfs_tune, fs_type, sysfs_type;
+
+# type for hal_graphics_composer
+type sysfs_graphics, fs_type, sysfs_type;
+
+# battery
+type sysfs_battery, fs_type, sysfs_type;
+
+# wifi mtu
+type sysfs_wifi_mtu, fs_type, sysfs_type;
+
+# cpu
+type sysfs_cpu, fs_type, sysfs_type;
+
+# dirty fix for ad and dyn_pu, find another solution
+type sysfs_graphics_comp, fs_type, sysfs_type;
+
+# rmt storage
+type debugfs_rmt_storage, fs_type, debugfs_type;
+
+# ram dumps
+type sysfs_ramdumps, fs_type, sysfs_type;
+
+# persist sensor cal
+type sensors_cal_file, file_type;
+
+# memtrack
+type debugfs_memtrack, fs_type, debugfs_type;
+
+# enable edl
+type sysfs_enable_edl, fs_type, sysfs_type;
+
+# kgsl
+type debugfs_kgsl_proc, fs_type, debugfs_type;
+
+# leds
+type sysfs_qpnp_26, fs_type, sysfs_type;
+
+# flash 
+type sysfs_qpnp_27, fs_type, sysfs_type;

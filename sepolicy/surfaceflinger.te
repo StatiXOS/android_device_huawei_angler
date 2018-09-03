@@ -1,3 +1,10 @@
 allow surfaceflinger sysfs_surfaceflinger:file rw_file_perms;
 allow surfaceflinger display_data_file:dir rw_dir_perms;
 allow surfaceflinger display_data_file:file create_file_perms;
+allow surfaceflinger sysfs:file { read open getattr };
+
+allow surfaceflinger sysfs_graphics_comp:file rw_file_perms;
+
+# kgsl
+allow surfaceflinger debugfs_kgsl_proc:dir { search read open };
+allow surfaceflinger debugfs_kgsl_proc:file { open read write getattr setattr };

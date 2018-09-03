@@ -24,4 +24,5 @@ allow perfd sysfs_devices_system_cpu:file rw_file_perms;
 # perfd uses kill(pid, 0) to determine if a process exists.
 # Determining if a process exists does not require the kill capability
 # since a permission denied indicates the process exists.
-dontaudit perfd self:capability kill;
+# added dac_override as it's not safe
+dontaudit perfd self:capability {kill dac_override};

@@ -1,0 +1,9 @@
+# grant kgsl to untrusted apps
+allow untrusted_app debugfs_kgsl_proc:dir { search read open };
+allow untrusted_app debugfs_kgsl_proc:file { write getattr setattr };
+
+# KGSL to app 25 & 27
+allow untrusted_app_25 debugfs_kgsl_proc:dir { search read open };
+allow untrusted_app_25 debugfs_kgsl_proc:file { write getattr setattr };
+allow untrusted_app_27 debugfs_kgsl_proc:dir { search read open };
+allow untrusted_app_27 debugfs_kgsl_proc:file { write getattr setattr };
