@@ -1,5 +1,5 @@
 #
-# Copyright 2015 The Android Open Source Project
+# Copyright 2013-2017 The StatiX Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,26 +17,22 @@
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
-# Get the long list of APNs
-PRODUCT_COPY_FILES := device/huawei/angler/configs/apns-full-conf.xml:system/etc/apns-conf.xml
+# Inherit from the common product configuration
+$(call inherit-product, device/huawei/angler/angler.mk)
 
-# Inherit from the common Open Source product configuration
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+# Inherit statix's custom configuration
+$(call inherit-product, $(TOPDIR)vendor/statix/config/common.mk)
 
-PRODUCT_NAME := angler
+# Screen Resolution for the Bootanimation
+TARGET_SCREEN_HEIGHT := 2560
+TARGET_SCREEN_WIDTH := 1440
+
+PRODUCT_NAME := statix_angler
 PRODUCT_DEVICE := angler
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Nexus 6P
 PRODUCT_MANUFACTURER := Huawei
-PRODUCT_RESTRICT_VENDOR_FILES := false
 
-$(call inherit-product, device/huawei/angler/device.mk)
-$(call inherit-product-if-exists, vendor/huawei/angler/device-vendor.mk)
-
-PRODUCT_PACKAGES += \
-    Launcher3QuickStep \
-    WallpaperPicker
-
-PRODUCT_PACKAGES += \
-    AOSPLinks
+# Device Fingerprint
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=angler \
