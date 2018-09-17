@@ -24,8 +24,15 @@ TARGET_USES_CHINOOK_SENSORHUB := false
 
 PRODUCT_SHIPPING_API_LEVEL := 23
 
+ifeq ($(TARGET_HAS_FOUR_CORES),true)
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/rootdir/init.angler.fourcore.rc:root/init.angler.rc \
+else
 PRODUCT_COPY_FILES += \
     device/huawei/angler/rootdir/init.angler.rc:root/init.angler.rc \
+endif
+
+PRODUCT_COPY_FILES += \
     device/huawei/angler/rootdir/init.angler.usb.rc:root/init.angler.usb.rc \
     device/huawei/angler/rootdir/fstab.angler:root/fstab.angler \
     device/huawei/angler/rootdir/ueventd.angler.rc:root/ueventd.angler.rc \
