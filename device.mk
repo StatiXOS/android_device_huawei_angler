@@ -27,7 +27,6 @@ PRODUCT_SHIPPING_API_LEVEL := 23
 PRODUCT_COPY_FILES += \
     device/huawei/angler/rootdir/init.angler.rc:root/init.angler.rc \
     device/huawei/angler/rootdir/init.angler.usb.rc:root/init.angler.usb.rc \
-    device/huawei/angler/rootdir/fstab.angler:root/fstab.angler \
     device/huawei/angler/rootdir/ueventd.angler.rc:root/ueventd.angler.rc \
     device/huawei/angler/rootdir/init.recovery.angler.rc:root/init.recovery.angler.rc \
     device/huawei/angler/rootdir/init.angler.power.sh:system/bin/init.angler.power.sh \
@@ -35,6 +34,15 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/keylayout/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
     device/huawei/angler/rootdir/init.qcom.devwait.sh:system/bin/init.qcom.devwait.sh \
     device/huawei/angler/rootdir/init.qcom.devstart.sh:system/bin/init.qcom.devstart.sh
+
+# OPTION TO CHOOSE ENCRYPTION METHOD
+ifeq ($(TARGET_ENCRYPTION_FDE),true)
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/rootdir/fstab_fde.angler:root/fstab.angler
+else
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/rootdir/fstab.angler:root/fstab.angler 
+endif
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_COPY_FILES += \
@@ -77,7 +85,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
-    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml 
 
 # Input device files
 PRODUCT_COPY_FILES += \
@@ -219,9 +227,6 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     dsm_ctrl
 
-PRODUCT_PACKAGES += \
-    android.hardware.soundtrigger@2.0-impl
-
 # Audio effects
 PRODUCT_PACKAGES += \
     libqcomvisualizer \
@@ -238,10 +243,12 @@ PRODUCT_PACKAGES += \
     libOmxVdecHevc \
     libOmxVenc
 
+# Audio libraries
 PRODUCT_PACKAGES += \
-    android.hardware.audio@4.0-impl:32 \
-    android.hardware.audio.effect@4.0-impl:32 \
-    android.hardware.soundtrigger@2.1-impl:32
+    android.hardware.soundtrigger@2.0-impl \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl
+
 
 #CAMERA
 PRODUCT_PACKAGES += \
