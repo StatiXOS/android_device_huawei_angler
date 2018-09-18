@@ -27,7 +27,6 @@ PRODUCT_SHIPPING_API_LEVEL := 23
 PRODUCT_COPY_FILES += \
     device/huawei/angler/rootdir/init.angler.rc:root/init.angler.rc \
     device/huawei/angler/rootdir/init.angler.usb.rc:root/init.angler.usb.rc \
-    device/huawei/angler/rootdir/fstab.angler:root/fstab.angler \
     device/huawei/angler/rootdir/ueventd.angler.rc:root/ueventd.angler.rc \
     device/huawei/angler/rootdir/init.recovery.angler.rc:root/init.recovery.angler.rc \
     device/huawei/angler/rootdir/init.angler.power.sh:system/bin/init.angler.power.sh \
@@ -35,6 +34,15 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/keylayout/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
     device/huawei/angler/rootdir/init.qcom.devwait.sh:system/bin/init.qcom.devwait.sh \
     device/huawei/angler/rootdir/init.qcom.devstart.sh:system/bin/init.qcom.devstart.sh
+
+# OPTION TO CHOOSE ENCRYPTION METHOD
+ifeq ($(TARGET_ENCRYPTION_FDE),true)
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/rootdir/fstab_fde.angler:root/fstab.angler
+else
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/rootdir/fstab.angler:root/fstab.angler 
+endif
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_COPY_FILES += \
