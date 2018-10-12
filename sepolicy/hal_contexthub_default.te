@@ -1,0 +1,2 @@
+allow hal_contexthub_default vendor_data_file:dir create_dir_perms;
+allow hal_contexthub_default sensors_device:chr_file { read write open };

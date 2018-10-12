@@ -8,7 +8,7 @@ init_daemon_domain(netmgrd)
 net_domain(netmgrd)
 allowxperm netmgrd self:udp_socket ioctl priv_sock_ioctls;
 
-allow netmgrd self:capability { setuid setgid net_admin net_raw };
+allow netmgrd self:capability { setuid setgid net_admin net_raw sys_module };
 dontaudit netmgrd self:capability setpcap;
 
 set_prop(netmgrd, net_radio_prop)

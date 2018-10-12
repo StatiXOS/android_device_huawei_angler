@@ -45,3 +45,11 @@ allow system_server sysfs_thermal:file write;
 # use MSM ipc router ioctls
 allow system_server self:socket ioctl;
 allowxperm system_server self:socket ioctl msm_sock_ipc_ioctls;
+
+# vendor data
+allow system_server vendor_data_file:dir create_dir_perms;
+allow system_server vendor_data_file:file create_file_perms;
+allow system_server vendor_data_file:file rw_file_perms;
+
+# leds 
+allow system_server sysfs_qpnp_26:file rw_file_perms;

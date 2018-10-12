@@ -1,0 +1,1 @@
+allow sdcardd vold:unix_stream_socket { read write };
