@@ -90,7 +90,6 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 # Enable auto suspend in poweroff charging to save power
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-
 #Audio
 AUDIO_FEATURE_ENABLED_DSM_FEEDBACK := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
@@ -163,5 +162,8 @@ DEVICE_MATRIX_FILE := device/huawei/angler/compatibility_matrix.xml
 
 # Enable workaround for slow rom flash
 BOARD_SUPPRESS_SECURE_ERASE := true
+
+# Network selection workaround
+TARGET_USE_OLD_MNC_FORMAT := true
 
 -include vendor/huawei/angler/BoardConfigVendor.mk
