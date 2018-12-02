@@ -20,8 +20,9 @@
 # Inherit from the common product configuration
 $(call inherit-product, device/huawei/angler/aosp_angler.mk)
 
-# Inherit statix's custom configuration
+# Inherit statix's custom configurations
 $(call inherit-product, $(TOPDIR)vendor/statix/config/common.mk)
+$(call inherit-product, $(TOPDIR)vendor/statix/config/gsm.mk)
 
 # Screen Resolution for the Bootanimation
 TARGET_SCREEN_HEIGHT := 2560
