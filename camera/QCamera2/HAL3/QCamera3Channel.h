@@ -185,7 +185,6 @@ public:
             cam_format_t &streamFormat);
     int32_t setReprocConfig(reprocess_config_t &reproc_cfg,
             camera3_stream_buffer_t *pInputBuffer,
-            metadata_buffer_t *metadata,
             cam_format_t streamFormat, cam_dimension_t dim);
     int32_t setFwkInputPPData(qcamera_fwk_input_pp_data_t *src_frame,
             camera3_stream_buffer_t *pInputBuffer,

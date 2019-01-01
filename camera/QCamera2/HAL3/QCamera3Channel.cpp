@@ -702,7 +702,7 @@ int32_t QCamera3ProcessingChannel::request(buffer_handle_t *buffer,
         cam_dimension_t dim;
         memset(&reproc_cfg, 0, sizeof(reprocess_config_t));
         memset(&dim, 0, sizeof(dim));
-        setReprocConfig(reproc_cfg, pInputBuffer, metadata, mStreamFormat, dim);
+        setReprocConfig(reproc_cfg, pInputBuffer, mStreamFormat, dim);
         startPostProc(reproc_cfg);
 
         qcamera_fwk_input_pp_data_t *src_frame = NULL;
@@ -769,7 +769,7 @@ int32_t QCamera3ProcessingChannel::request(buffer_handle_t *buffer,
  *
  * DESCRIPTION:
  *
- * PARAMETERS : isType : type of image stabilization on the buffer
+-* PARAMETERS : isType : type of image stabilization on the buffer
  *
  * RETURN     : int32_t type of status
  *              NO_ERROR  -- success
@@ -777,6 +777,9 @@ int32_t QCamera3ProcessingChannel::request(buffer_handle_t *buffer,
  *==========================================================================*/
 int32_t QCamera3ProcessingChannel::initialize(cam_is_type_t isType)
 {
+    // clang, forgive me if I am mocking you like this:
+    isType = IS_TYPE_NONE;
+
     int32_t rc = NO_ERROR;
     rc = mOfflineMetaMemory.allocateAll(sizeof(metadata_buffer_t));
     if (rc == NO_ERROR) {
@@ -1193,7 +1196,6 @@ int32_t QCamera3ProcessingChannel::translateStreamTypeAndFormat(camera3_stream_t
  *==========================================================================*/
 int32_t QCamera3ProcessingChannel::setReprocConfig(reprocess_config_t &reproc_cfg,
         camera3_stream_buffer_t *pInputBuffer,
-        metadata_buffer_t *metadata,
         cam_format_t streamFormat, cam_dimension_t dim)
 {
     int32_t rc = 0;
@@ -2164,9 +2166,12 @@ void QCamera3RawDumpChannel::dumpRawSnapshot(mm_camera_buf_def_t *frame)
  *
  * RETURN          : NA
  *==========================================================================*/
-void QCamera3RawDumpChannel::streamCbRoutine(mm_camera_super_buf_t *super_frame,
+void QCamera3RawDumpChannel::streamCbRoutine(mm_camera_super_buf_t *super_frame,    
                                                 QCamera3Stream *stream)
 {
+    // clang, please forgive me for what I am about to do:
+    stream = NULL;
+
     CDBG("%s: E",__func__);
     if (super_frame == NULL || super_frame->num_bufs != 1) {
         ALOGE("%s: super_frame is not valid", __func__);
@@ -2492,7 +2497,7 @@ int32_t QCamera3YUVChannel::request(buffer_handle_t *buffer,
         memset(&reproc_cfg, 0, sizeof(reprocess_config_t));
         memset(&dim, 0, sizeof(dim));
         mStreams[0]->getFrameDimension(dim);
-        setReprocConfig(reproc_cfg, NULL, metadata, mStreamFormat, dim);
+        setReprocConfig(reproc_cfg, NULL, mStreamFormat, dim);
 
         // Start postprocessor without input buffer
         startPostProc(reproc_cfg);
@@ -3061,7 +3066,7 @@ int32_t QCamera3PicChannel::request(buffer_handle_t *buffer,
     //and recalculate the plane info
     dim.width = (int32_t)mYuvWidth;
     dim.height = (int32_t)mYuvHeight;
-    setReprocConfig(reproc_cfg, pInputBuffer, metadata, mStreamFormat, dim);
+    setReprocConfig(reproc_cfg, pInputBuffer, mStreamFormat, dim);
 
     // Picture stream has already been started before any request comes in
     if (!m_bIsActive) {
