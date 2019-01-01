@@ -239,8 +239,7 @@ private:
             bool free_and_bufdone_meta_buf,
             bool lastUrgentMetadataInBatch,
             bool lastMetadataInBatch);
-    void handleBatchMetadata(mm_camera_super_buf_t *metadata_buf,
-            bool free_and_bufdone_meta_buf);
+    void handleBatchMetadata(mm_camera_super_buf_t *metadata_buf);
     void handleBufferWithLock(camera3_stream_buffer_t *buffer,
             uint32_t frame_number);
     void handleInputBufferWithLock(camera3_stream_buffer_t *buffer,

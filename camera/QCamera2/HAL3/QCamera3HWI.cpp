@@ -2310,8 +2310,9 @@ int32_t QCamera3HardwareInterface::handlePendingReprocResults(uint32_t frame_num
  *
  *==========================================================================*/
 void QCamera3HardwareInterface::handleBatchMetadata(
-        mm_camera_super_buf_t *metadata_buf, bool free_and_bufdone_meta_buf)
+        mm_camera_super_buf_t *metadata_buf)
 {
+
     ATRACE_CALL();
 
     if (NULL == metadata_buf) {
@@ -4132,8 +4133,7 @@ void QCamera3HardwareInterface::captureResultCb(mm_camera_super_buf_t *metadata_
 {
     if (metadata_buf) {
         if (CAMERA3_STREAM_CONFIGURATION_CONSTRAINED_HIGH_SPEED_MODE == mOpMode) {
-            handleBatchMetadata(metadata_buf,
-                    true /* free_and_bufdone_meta_buf */);
+            handleBatchMetadata(metadata_buf);
         } else { /* mBatchSize = 0 */
             hdrPlusPerfLock(metadata_buf);
             pthread_mutex_lock(&mMutex);
