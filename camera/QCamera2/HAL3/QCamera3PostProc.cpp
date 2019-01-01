@@ -361,9 +361,6 @@ int32_t QCamera3PostProcessor::getFWKJpegEncodeConfig(
     CDBG("%s : X", __func__);
     return NO_ERROR;
 
-on_error:
-    CDBG("%s : X with error %d", __func__, ret);
-    return ret;
 }
 
 /*===========================================================================
