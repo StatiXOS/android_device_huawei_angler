@@ -359,7 +359,11 @@ private:
     int32_t processPrepSnapshotDoneEvent(cam_prep_snapshot_state_t prep_snapshot_state);
     int32_t processASDUpdate(cam_auto_scene_t scene);
     int32_t processJpegNotify(qcamera_jpeg_evt_payload_t *jpeg_job);
+    #ifndef VANILLA_HAL
     int32_t processHDRData(cam_asd_hdr_scene_data_t hdr_scene);
+    #else
+    int32_t processHDRData();
+    #endif
     int32_t processRetroAECUnlock();
     int32_t processZSLCaptureDone();
     int32_t processSceneData(cam_scene_mode_type scene);
@@ -406,7 +410,11 @@ private:
     QCameraChannel *getChannelByHandle(uint32_t channelHandle);
     mm_camera_buf_def_t *getSnapshotFrame(mm_camera_super_buf_t *recvd_frame);
     int32_t processFaceDetectionResult(cam_face_detection_data_t *fd_data);
+    #ifndef VANILLA_HAL
     int32_t processHistogramStats(cam_hist_stats_t &stats_data);
+    #else
+    int32_t processHistogramStats();
+    #endif
     int32_t setHistogram(bool histogram_en);
     int32_t setFaceDetection(bool enabled);
     int32_t prepareHardwareForSnapshot(int32_t afNeeded);

@@ -873,6 +873,7 @@ void QCamera2HardwareInterface::put_parameters(struct camera_device *device,
  *              NO_ERROR  -- success
  *              none-zero failure code
  *==========================================================================*/
+
 int QCamera2HardwareInterface::send_command(struct camera_device *device,
                                             int32_t cmd,
                                             int32_t arg1,
@@ -3957,7 +3958,8 @@ int QCamera2HardwareInterface::sendCommand(int32_t command,
         int32_t &arg1, int32_t &/*arg2*/)
 {
     int rc = NO_ERROR;
-
+    arg1 = 0;
+    
     switch (command) {
 #ifndef VANILLA_HAL
     case CAMERA_CMD_LONGSHOT_ON:
@@ -4650,7 +4652,11 @@ int32_t QCamera2HardwareInterface::processRetroAECUnlock()
  *              NO_ERROR  -- success
  *              none-zero failure code
  *==========================================================================*/
+#ifndef VANILLA_HAL
 int32_t QCamera2HardwareInterface::processHDRData(cam_asd_hdr_scene_data_t hdr_scene)
+#else
+int32_t QCamera2HardwareInterface::processHDRData()
+#endif
 {
     int rc = NO_ERROR;
 
@@ -6563,7 +6569,11 @@ void QCamera2HardwareInterface::returnStreamBuffer(void *data,
  *              NO_ERROR  -- success
  *              none-zero failure code
  *==========================================================================*/
+#ifndef VANILLA_HAL
 int32_t QCamera2HardwareInterface::processHistogramStats(cam_hist_stats_t &stats_data)
+#else
+int32_t QCamera2HardwareInterface::processHistogramStats()
+#endif
 {
 #ifndef VANILLA_HAL
     if (!mParameters.isHistogramEnabled()) {

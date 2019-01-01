@@ -1349,7 +1349,11 @@ int32_t QCameraStateMachine::procEvtPreviewingState(qcamera_sm_evt_enum_t evt,
                 rc = m_parent->processFaceDetectionResult(&internal_evt->faces_data);
                 break;
             case QCAMERA_INTERNAL_EVT_HISTOGRAM_STATS:
-                rc = m_parent->processHistogramStats(internal_evt->stats_data);
+                #ifndef VANILLA_HAL
+                    rc = m_parent->processHistogramStats(internal_evt->stats_data);
+                #else
+                    rc = m_parent->processHistogramStats();
+                #endif
                 break;
             case QCAMERA_INTERNAL_EVT_CROP_INFO:
                 rc = m_parent->processZoomEvent(internal_evt->crop_data);
@@ -1370,7 +1374,11 @@ int32_t QCameraStateMachine::procEvtPreviewingState(qcamera_sm_evt_enum_t evt,
                 rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
                 break;
             case QCAMERA_INTERNAL_EVT_HDR_UPDATE:
-                rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #ifndef VANILLA_HAL
+                    rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #else
+                    rc = m_parent->processHDRData();
+                #endif
                 break;
             case QCAMERA_INTERNAL_EVT_RETRO_AEC_UNLOCK:
                 rc = m_parent->processRetroAECUnlock();
@@ -1515,7 +1523,11 @@ int32_t QCameraStateMachine::procEvtPrepareSnapshotState(qcamera_sm_evt_enum_t e
                 rc = m_parent->processFaceDetectionResult(&internal_evt->faces_data);
                 break;
             case QCAMERA_INTERNAL_EVT_HISTOGRAM_STATS:
-                rc = m_parent->processHistogramStats(internal_evt->stats_data);
+                #ifndef VANILLA_HAL
+                    rc = m_parent->processHistogramStats(internal_evt->stats_data);
+                #else
+                    rc = m_parent->processHistogramStats();
+                #endif
                 break;
             case QCAMERA_INTERNAL_EVT_CROP_INFO:
                 rc = m_parent->processZoomEvent(internal_evt->crop_data);
@@ -1536,7 +1548,11 @@ int32_t QCameraStateMachine::procEvtPrepareSnapshotState(qcamera_sm_evt_enum_t e
                 rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
                 break;
             case QCAMERA_INTERNAL_EVT_HDR_UPDATE:
-                rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #ifndef VANILLA_HAL
+                    rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #else
+                    rc = m_parent->processHDRData();
+                #endif
                 break;
             case QCAMERA_INTERNAL_EVT_RETRO_AEC_UNLOCK:
                 rc = m_parent->processRetroAECUnlock();
@@ -1884,9 +1900,12 @@ int32_t QCameraStateMachine::procEvtPicTakingState(qcamera_sm_evt_enum_t evt,
                 break;
             case QCAMERA_INTERNAL_EVT_FOCUS_POS_UPDATE:
                 rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
-                break;
             case QCAMERA_INTERNAL_EVT_HDR_UPDATE:
-                rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #ifndef VANILLA_HAL
+                    rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #else
+                    rc = m_parent->processHDRData();
+                #endif
                 break;
             case QCAMERA_INTERNAL_EVT_RETRO_AEC_UNLOCK:
                 rc = m_parent->processRetroAECUnlock();
@@ -2288,7 +2307,11 @@ int32_t QCameraStateMachine::procEvtRecordingState(qcamera_sm_evt_enum_t evt,
                 rc = m_parent->processFaceDetectionResult(&internal_evt->faces_data);
                 break;
             case QCAMERA_INTERNAL_EVT_HISTOGRAM_STATS:
-                rc = m_parent->processHistogramStats(internal_evt->stats_data);
+                #ifndef VANILLA_HAL
+                    rc = m_parent->processHistogramStats(internal_evt->stats_data);
+                #else
+                    rc = m_parent->processHistogramStats();
+                #endif
                 break;
             case QCAMERA_INTERNAL_EVT_CROP_INFO:
                 rc = m_parent->processZoomEvent(internal_evt->crop_data);
@@ -2309,7 +2332,11 @@ int32_t QCameraStateMachine::procEvtRecordingState(qcamera_sm_evt_enum_t evt,
                 rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
                 break;
             case QCAMERA_INTERNAL_EVT_HDR_UPDATE:
-                rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #ifndef VANILLA_HAL
+                    rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #else
+                    rc = m_parent->processHDRData();
+                #endif
                 break;
             case QCAMERA_INTERNAL_EVT_RETRO_AEC_UNLOCK:
                 rc = m_parent->processRetroAECUnlock();
@@ -2651,7 +2678,11 @@ int32_t QCameraStateMachine::procEvtVideoPicTakingState(qcamera_sm_evt_enum_t ev
                 rc = m_parent->processFaceDetectionResult(&internal_evt->faces_data);
                 break;
             case QCAMERA_INTERNAL_EVT_HISTOGRAM_STATS:
-                rc = m_parent->processHistogramStats(internal_evt->stats_data);
+                #ifndef VANILLA_HAL
+                    rc = m_parent->processHistogramStats(internal_evt->stats_data);
+                #else
+                    rc = m_parent->processHistogramStats();
+                #endif
                 break;
             case QCAMERA_INTERNAL_EVT_CROP_INFO:
                 rc = m_parent->processZoomEvent(internal_evt->crop_data);
@@ -2672,7 +2703,11 @@ int32_t QCameraStateMachine::procEvtVideoPicTakingState(qcamera_sm_evt_enum_t ev
                 rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
                 break;
             case QCAMERA_INTERNAL_EVT_HDR_UPDATE:
-                rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #ifndef VANILLA_HAL
+                    rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #else
+                    rc = m_parent->processHDRData();
+                #endif
                 break;
             case QCAMERA_INTERNAL_EVT_RETRO_AEC_UNLOCK:
                 rc = m_parent->processRetroAECUnlock();
@@ -3117,7 +3152,11 @@ int32_t QCameraStateMachine::procEvtPreviewPicTakingState(qcamera_sm_evt_enum_t 
                 }
                 break;
             case QCAMERA_INTERNAL_EVT_HISTOGRAM_STATS:
-                rc = m_parent->processHistogramStats(internal_evt->stats_data);
+                #ifndef VANILLA_HAL
+                    rc = m_parent->processHistogramStats(internal_evt->stats_data);
+                #else
+                    rc = m_parent->processHistogramStats();
+                #endif
                 break;
             case QCAMERA_INTERNAL_EVT_CROP_INFO:
                 rc = m_parent->processZoomEvent(internal_evt->crop_data);
@@ -3138,7 +3177,11 @@ int32_t QCameraStateMachine::procEvtPreviewPicTakingState(qcamera_sm_evt_enum_t 
                 rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
                 break;
             case QCAMERA_INTERNAL_EVT_HDR_UPDATE:
-                rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #ifndef VANILLA_HAL
+                    rc = m_parent->processHDRData(internal_evt->hdr_data);
+                #else
+                    rc = m_parent->processHDRData();
+                #endif
                 break;
             case QCAMERA_INTERNAL_EVT_RETRO_AEC_UNLOCK:
                 rc = m_parent->processRetroAECUnlock();
