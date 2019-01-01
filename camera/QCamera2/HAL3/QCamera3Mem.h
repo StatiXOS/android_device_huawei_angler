@@ -129,7 +129,7 @@ public:
     QCamera3GrallocMemory(uint32_t startIdx);
     virtual ~QCamera3GrallocMemory();
 
-    int registerBuffer(buffer_handle_t *buffer, cam_stream_type_t type);
+    int registerBuffer(buffer_handle_t *buffer);
     int32_t unregisterBuffer(size_t idx);
     void unregisterBuffers();
     virtual int cacheOps(uint32_t index, unsigned int cmd);

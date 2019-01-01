@@ -830,7 +830,7 @@ int32_t QCamera3ProcessingChannel::registerBuffer(buffer_handle_t *buffer,
     }
 
     streamType = mStreams[0]->getMyType();
-    rc = mMemory.registerBuffer(buffer, streamType);
+    rc = mMemory.registerBuffer(buffer);
     if (ALREADY_EXISTS == rc) {
         return NO_ERROR;
     } else if (NO_ERROR != rc) {
@@ -867,7 +867,7 @@ int32_t QCamera3ProcessingChannel::setFwkInputPPData(qcamera_fwk_input_pp_data_t
     int32_t rc = NO_ERROR;
     int input_index = mOfflineMemory.getMatchBufIndex((void*)pInputBuffer->buffer);
     if(input_index < 0) {
-        rc = mOfflineMemory.registerBuffer(pInputBuffer->buffer, mStreamType);
+        rc = mOfflineMemory.registerBuffer(pInputBuffer->buffer);
         if (NO_ERROR != rc) {
             ALOGE("%s: On-the-fly input buffer registration failed %d",
                     __func__, rc);
@@ -3502,7 +3502,7 @@ int32_t QCamera3ReprocessChannel::registerBuffer(buffer_handle_t *buffer,
     }
 
     streamType = mStreams[0]->getMyType();
-    rc = mGrallocMemory.registerBuffer(buffer, streamType);
+    rc = mGrallocMemory.registerBuffer(buffer);
     if (ALREADY_EXISTS == rc) {
         return NO_ERROR;
     } else if (NO_ERROR != rc) {

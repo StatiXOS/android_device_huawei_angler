@@ -174,8 +174,7 @@ public:
                         void* cbCookie,
                         bool cached,
                         QCameraMemoryPool *pool = NULL,
-                        cam_stream_type_t streamType = CAM_STREAM_TYPE_DEFAULT,
-                        cam_stream_buf_type buf_Type = CAM_STREAM_BUF_TYPE_MPLANE);
+                        cam_stream_type_t streamType = CAM_STREAM_TYPE_DEFAULT);
     virtual ~QCameraStreamMemory();
 
     virtual int allocate(uint8_t count, size_t size, uint32_t is_secure);

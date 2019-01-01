@@ -64,7 +64,7 @@ public:
     bool valid(uint32_t index);
 
     // Gralloc buffer related functions
-    int registerBuffer(buffer_handle_t *buffer, cam_stream_type_t type);
+    int registerBuffer(buffer_handle_t *buffer);
     int unregisterBuffer(uint32_t index);
     int getMatchBufIndex(void *object);
     void *getBufferHandle(uint32_t index);

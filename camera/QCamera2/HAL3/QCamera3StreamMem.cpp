@@ -280,11 +280,10 @@ bool QCamera3StreamMem::valid(uint32_t index)
  *              NO_ERROR  -- success
  *              none-zero failure code
  *==========================================================================*/
-int QCamera3StreamMem::registerBuffer(buffer_handle_t *buffer,
-        cam_stream_type_t type)
+int QCamera3StreamMem::registerBuffer(buffer_handle_t *buffer)
 {
     Mutex::Autolock lock(mLock);
-    return mGrallocMem.registerBuffer(buffer, type);
+    return mGrallocMem.registerBuffer(buffer);
 }
 
 
