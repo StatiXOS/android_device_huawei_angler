@@ -2452,13 +2452,6 @@ void QCamera3HardwareInterface::handleBatchMetadata(
                 (i == frameNumDiff-1) /* last metadata in the batch metadata */);
         pthread_mutex_unlock(&mMutex);
     }
-
-done_batch_metadata:
-    /* BufDone metadata buffer */
-    if (free_and_bufdone_meta_buf) {
-        mMetadataChannel->bufDone(metadata_buf);
-        free(metadata_buf);
-    }
 }
 
 /*===========================================================================
