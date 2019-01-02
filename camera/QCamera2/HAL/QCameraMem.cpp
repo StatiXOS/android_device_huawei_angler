@@ -30,6 +30,9 @@
 #define MEMLOG_THRESH 102400
 #define LOG_TAG "QCameraHWI_Mem"
 
+// Macro for "unused" parameters
+#define A_Unused __attribute__((unused))
+
 #include <string.h>
 #include <fcntl.h>
 #include <sys/mman.h>
@@ -978,7 +981,7 @@ QCameraStreamMemory::QCameraStreamMemory(camera_request_memory memory,
         void* cbCookie,
         bool cached,
         QCameraMemoryPool *pool,
-        cam_stream_type_t streamType, cam_stream_buf_type bufType)
+        cam_stream_type_t streamType, A_Unused cam_stream_buf_type bufType)
     :QCameraMemory(cached, pool, streamType),
      mGetMemory(memory),
      mCallbackCookie(cbCookie)

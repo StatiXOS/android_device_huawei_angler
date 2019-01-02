@@ -30,6 +30,9 @@
 #define LOG_TAG "QCamera2HWI"
 #define ATRACE_TAG ATRACE_TAG_CAMERA
 
+// Macro for "unused" parameters
+#define A_Unused __attribute__((unused))
+
 #include <utils/Log.h>
 #include <cutils/properties.h>
 #include <hardware/camera.h>
@@ -3954,7 +3957,7 @@ int QCamera2HardwareInterface::putParameters(char *parms)
  *              none-zero failure code
  *==========================================================================*/
 int QCamera2HardwareInterface::sendCommand(int32_t command,
-        int32_t &arg1, int32_t &/*arg2*/)
+        A_Unused int32_t &arg1, int32_t &/*arg2*/)
 {
     int rc = NO_ERROR;
 
@@ -4650,7 +4653,7 @@ int32_t QCamera2HardwareInterface::processRetroAECUnlock()
  *              NO_ERROR  -- success
  *              none-zero failure code
  *==========================================================================*/
-int32_t QCamera2HardwareInterface::processHDRData(cam_asd_hdr_scene_data_t hdr_scene)
+int32_t QCamera2HardwareInterface::processHDRData(A_Unused cam_asd_hdr_scene_data_t hdr_scene)
 {
     int rc = NO_ERROR;
 
@@ -6563,7 +6566,7 @@ void QCamera2HardwareInterface::returnStreamBuffer(void *data,
  *              NO_ERROR  -- success
  *              none-zero failure code
  *==========================================================================*/
-int32_t QCamera2HardwareInterface::processHistogramStats(cam_hist_stats_t &stats_data)
+int32_t QCamera2HardwareInterface::processHistogramStats(A_Unused cam_hist_stats_t &stats_data)
 {
 #ifndef VANILLA_HAL
     if (!mParameters.isHistogramEnabled()) {
