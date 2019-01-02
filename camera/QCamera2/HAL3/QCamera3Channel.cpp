@@ -29,6 +29,10 @@
 
 #define ATRACE_TAG ATRACE_TAG_CAMERA
 #define LOG_TAG "QCamera3Channel"
+
+// Macro for "unused" parameters
+#define A_Unused __attribute__((unused))
+
 //#define LOG_NDEBUG 0
 #include <fcntl.h>
 #include <stdlib.h>
@@ -775,7 +779,7 @@ int32_t QCamera3ProcessingChannel::request(buffer_handle_t *buffer,
  *              NO_ERROR  -- success
  *              none-zero failure code
  *==========================================================================*/
-int32_t QCamera3ProcessingChannel::initialize(cam_is_type_t isType)
+int32_t QCamera3ProcessingChannel::initialize(A_Unused cam_is_type_t isType)
 {
     int32_t rc = NO_ERROR;
     rc = mOfflineMetaMemory.allocateAll(sizeof(metadata_buffer_t));
@@ -1193,7 +1197,7 @@ int32_t QCamera3ProcessingChannel::translateStreamTypeAndFormat(camera3_stream_t
  *==========================================================================*/
 int32_t QCamera3ProcessingChannel::setReprocConfig(reprocess_config_t &reproc_cfg,
         camera3_stream_buffer_t *pInputBuffer,
-        metadata_buffer_t *metadata,
+        A_Unused metadata_buffer_t *metadata,
         cam_format_t streamFormat, cam_dimension_t dim)
 {
     int32_t rc = 0;
@@ -2165,7 +2169,7 @@ void QCamera3RawDumpChannel::dumpRawSnapshot(mm_camera_buf_def_t *frame)
  * RETURN          : NA
  *==========================================================================*/
 void QCamera3RawDumpChannel::streamCbRoutine(mm_camera_super_buf_t *super_frame,
-                                                QCamera3Stream *stream)
+                                                A_Unused QCamera3Stream *stream)
 {
     CDBG("%s: E",__func__);
     if (super_frame == NULL || super_frame->num_bufs != 1) {

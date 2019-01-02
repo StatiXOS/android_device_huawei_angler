@@ -2310,7 +2310,7 @@ int32_t QCamera3HardwareInterface::handlePendingReprocResults(uint32_t frame_num
  *
  *==========================================================================*/
 void QCamera3HardwareInterface::handleBatchMetadata(
-        mm_camera_super_buf_t *metadata_buf, bool free_and_bufdone_meta_buf)
+        mm_camera_super_buf_t *metadata_buf, __attribute__((unused)) bool free_and_bufdone_meta_buf)
 {
     ATRACE_CALL();
 
