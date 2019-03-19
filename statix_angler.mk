@@ -18,6 +18,7 @@
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
 # Inherit from the common product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, device/huawei/angler/aosp_angler.mk)
 
 # Inherit statix's custom configurations
