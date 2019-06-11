@@ -36,3 +36,9 @@ allow init sysfs_gpu_tuning:file setattr;
 allow init sysfs_ramdumps:file rw_file_perms;
 # todo fix missing labels
 allow init sysfs:file { setattr getattr };
+
+allow init firmware_file:dir mounton;
+allow init persist_file:dir mounton;
+allow init userdata_block_device:blk_file { write };
+
+allow init persist_block_device:lnk_file relabelto;
