@@ -6,7 +6,9 @@
 /dev/block/bootdevice/by-name/system       /               ext4    ro,barrier=1,inode_readahead_blks=8                             wait
 /dev/block/bootdevice/by-name/vendor       /vendor         ext4    ro,barrier=1,inode_readahead_blks=8                             wait
 /dev/block/bootdevice/by-name/userdata     /data           ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic,inode_readahead_blks=8 wait,check,formattable,latemount,fileencryption=aes-256-xts:aes-256-cts
+/dev/block/bootdevice/by-name/userdata     /data           f2fs    rw,nosuid,nodev,nobarrier,discard,inline_xattr,inline_data wait,check,formattable,encryptable=/dev/block/platform/soc.0/f9824900.sdhci/by-name/metadata
 /dev/block/bootdevice/by-name/cache        /cache          ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic wait,check
+/dev/block/bootdevice/by-name/cache        /cache          f2fs    rw,nosuid,nodev,noatime,nodiratime,inline_xattr wait,check,formattable
 /dev/block/bootdevice/by-name/persist      /persist        ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nodelalloc,nomblk_io_submit,errors=panic wait,notrim
 /dev/block/bootdevice/by-name/modem        /firmware       vfat    ro,shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337, wait
 /dev/block/bootdevice/by-name/boot         /boot           emmc    defaults                                                        defaults
