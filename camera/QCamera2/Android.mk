@@ -64,6 +64,11 @@ LOCAL_C_INCLUDES += \
         frameworks/native/include/media/hardware \
         device/huawei/angler/camera/QCamera2/HAL
 
+ifeq ($(TARGET_COMPILE_WITH_MSM_KERNEL),true)
+LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+endif
+
 TARGET_HEADER_LIBRARIES := generated_kernel_headers
 
 #LOCAL_STATIC_LIBRARIES := libqcamera2_util
