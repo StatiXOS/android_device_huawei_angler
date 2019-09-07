@@ -181,10 +181,12 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.mapper@2.0-service \
     hwcomposer.msm8994 \
     libgenlock \
     memtrack.msm8994 \
-    android.hardware.memtrack@1.0-impl
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service
 
 # Light HAL
 PRODUCT_PACKAGES += \
@@ -250,7 +252,8 @@ PRODUCT_PACKAGES += \
     gps.msm8994
 
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.1-impl
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service
 
 # Sensor & activity_recognition HAL
 TARGET_USES_NANOHUB_SENSORHAL := true
@@ -268,7 +271,8 @@ PRODUCT_PACKAGES += \
 
 # new gatekeeper HAL
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service
 
 ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
 PRODUCT_PACKAGES += \
@@ -314,7 +318,8 @@ PRODUCT_PACKAGES += \
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -568,11 +573,6 @@ PRODUCT_COPY_FILES += \
 
 # services for encryption
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-service \
-    android.hardware.keymaster@3.0-service.rc \
-    android.hardware.gatekeeper@1.0-service \
-    android.hardware.graphics.composer@2.1-service \
-    android.hardware.graphics.mapper@2.0-service \
     gatekeeper.msm8994 \
     keystore.msm8994
 
