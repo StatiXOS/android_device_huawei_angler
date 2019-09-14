@@ -158,6 +158,10 @@ on boot
     chmod 0644 /sys/kernel/debug/tracing/trace_marker
     chown webview_zygote webview_zygote /sys/kernel/debug/tracing/trace_marker
 
+on post-fs
+    # Allow writing to the kernel trace log.
+    chmod 0222 /sys/kernel/debug/tracing/trace_marker 
+
     # hack to start loading framework
     setprop vold.decrypt trigger_restart_framework
 
