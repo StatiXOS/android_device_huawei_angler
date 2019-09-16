@@ -155,13 +155,13 @@ on boot
 
     # WebView
     chmod 0755 /sys/kernel/debug/tracing
-    chmod 0644 /sys/kernel/debug/tracing/trace_marker
+    chmod 0222 /sys/kernel/debug/tracing/trace_marker
     chown webview_zygote webview_zygote /sys/kernel/debug/tracing/trace_marker
 
-on post-fs
-    # Allow writing to the kernel trace log.
-    chmod 0222 /sys/kernel/debug/tracing/trace_marker 
+    # loading libs
+    export LD_LIBRARY_PATH $LD_LIBRARY_PATH:/system/lib:/system/lib64:/system/apex/com.android.runtime.debug/lib:/system/apex/com.android.runtime.debug/lib64:/vendor/lib:/vendor/lib64
 
+on post-fs
     # hack to start loading framework
     setprop vold.decrypt trigger_restart_framework
 
