@@ -21,4 +21,4 @@ allow init-power-sh sysfs:file rw_file_perms;
 allow init-power-sh sysfs_usb:file w_file_perms;
 
 # execute toybox/toolbox
-allow init-power-sh toolbox_exec:file rx_file_perms;
+allow init-power-sh vendor_toolbox_exec:file rx_file_perms;

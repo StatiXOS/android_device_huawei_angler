@@ -6,4 +6,4 @@ init_daemon_domain(init-qcom-devwait-sh)
 allow init-qcom-devwait-sh shell_exec:file rx_file_perms;
 
 # execute toybox/toolbox
-allow init-qcom-devwait-sh toolbox_exec:file rx_file_perms;
+allow init-qcom-devwait-sh vendor_vendor_toolbox_exec:file rx_file_perms;
