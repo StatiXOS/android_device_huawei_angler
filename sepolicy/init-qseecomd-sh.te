@@ -6,4 +6,4 @@ init_daemon_domain(init-angler-qseecomd-sh)
 allow init-angler-qseecomd-sh shell_exec:file rx_file_perms;
 
 # execute toybox/toolbox
-allow init-angler-qseecomd-sh toolbox_exec:file rx_file_perms;
+allow init-angler-qseecomd-sh vendor_toolbox_exec:file rx_file_perms;
