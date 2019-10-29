@@ -1,0 +1,7 @@
+[
+ {
+   "repository": "StatiXOS/android_device_huawei_angler-common",
+   "target_path": "device/huawei/angler-common",
+   "branch": "10"
+ }
+]
